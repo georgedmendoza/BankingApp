@@ -1,5 +1,6 @@
 using BankingApp.Repositories;
 using BankingApp.Services;
+using BankingApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +12,19 @@ builder.Services.AddControllers();
 //builder.Services.AddSwaggerGen();
 
 //DI
-builder.Services.AddScoped<IAccountRepository, InMemoryAccountRepository>();
+//builder.Services.AddScoped<IAccountRepository, InMemoryAccountRepository>();
+builder.Services.AddSingleton<IAccountRepository, InMemoryAccountRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
+//add account
+//var repo = app.Services.GetRequiredService<IAccountRepository>();
+//repo.AddAccount(new Account
+//{
+//    AccountId = 2,
+//    CustomerId = 1,
+//    Balance = 0m
+//});
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())

@@ -12,6 +12,16 @@ namespace BankingApp.Services
 
         public TransactionResponse Deposit(TransactionRequest request)
         {
+            var account = _repo.GetAccount(request.accountId);
+            if (account == null)
+            {
+                throw new Exception("Account does not exist");
+            }
+            if (account.CustomerId != request.customerId)
+            {
+                throw new Exception("Account does not match the specified user");
+            }
+
             var balance = _repo.GetBalance(request.accountId);
             balance += request.amount;
             _repo.UpdateBalance(request.accountId, balance);
