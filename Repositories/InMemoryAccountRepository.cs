@@ -7,6 +7,7 @@ namespace BankingApp.Repositories
     {
         private readonly Dictionary<int, Account> _accounts = new();
 
+        // access or modify acct data methods
         public decimal GetBalance(int accountId)
         {
             var isAccount = _accounts.TryGetValue(accountId, out var account);

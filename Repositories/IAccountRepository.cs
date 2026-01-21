@@ -5,6 +5,7 @@ namespace BankingApp.Repositories
     public interface IAccountRepository
     {
         //methods needed to make a deposit
+        // data goes through here
         decimal GetBalance(int accountId);
         void UpdateBalance(int accountId, decimal balance);
         // validate account

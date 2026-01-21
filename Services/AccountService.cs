@@ -7,6 +7,7 @@ namespace BankingApp.Services
 {
     public class AccountService : IAccountService
     {
+        // reference to object IAccountRepository
         private readonly IAccountRepository _repo;
         public AccountService(IAccountRepository repo) => _repo = repo;
 

@@ -18,13 +18,13 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
 //add account
-//var repo = app.Services.GetRequiredService<IAccountRepository>();
-//repo.AddAccount(new Account
-//{
-//    AccountId = 2,
-//    CustomerId = 1,
-//    Balance = 0m
-//});
+var repo = app.Services.GetRequiredService<IAccountRepository>();
+repo.AddAccount(new Account
+{
+    AccountId = 2,
+    CustomerId = 1,
+    Balance = 0m
+});
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())

@@ -15,7 +15,8 @@ namespace BankingApp.Controllers
             _accountService = accountService;
         }
 
-
+        // api/Banking/deposit
+        // takes a TransactionRequest in the body
         [HttpPost("deposit")]
         public ActionResult<TransactionResponse> Deposit([FromBody] TransactionRequest request)
         {
